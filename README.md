@@ -1,5 +1,5 @@
 # djangovue
-simple project to connect django as a backend and vue-cli as frontend
+simple project to connect django as a backend and vue-cli as frontend and vue-material by [@marcosmoura](https://github.com/marcosmoura/vue-material)
 
 ## how to use
 1. clone repo
@@ -12,7 +12,7 @@ simple project to connect django as a backend and vue-cli as frontend
         ```
         $ virtualenv env
         ```
-     * activate virtualenv
+    * activate virtualenv
         ```
         $ env\Script\activate        
         ```
