@@ -1,29 +1,25 @@
 <template>
   <div class="container">
     <add-todo class="todo-form"></add-todo>
-    <todolist v-for="todo in todos" :todo="todo"></todolist>
+    <todolist v-for="todo in todoStore.todoList" :todo="todo"></todolist>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
 import AddTodo from './AddTodo'
 import Todolist from './Todolist'
-import {todoapi} from './../api'
+import {mapState} from 'vuex'
 export default {
   components: {
     Todolist, AddTodo
   },
-  data () {
-    return {
-      todos: []
-    }
+  computed: {
+    ...mapState({
+      todoStore: state => state.todoStore
+    })
   },
   created () {
-    this.$http.get(todoapi).then((res) => {
-      console.log(res)
-      Vue.set(this, 'todos', res.body)
-    })
+    this.$store.dispatch('setTodoList')
   }
 }
 </script>

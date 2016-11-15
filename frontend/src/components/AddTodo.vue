@@ -17,8 +17,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import {createTodoUrl} from './../api'
+// import {mapState} from 'vuex'
 export default {
   data () {
     return {
@@ -26,16 +25,18 @@ export default {
       desc: ''
     }
   },
+  // computed: {
+  //   ...mapState({
+  //     todoStore: state => state.todoStore
+  //   })
+  // },
   methods: {
     saveTodos () {
-      console.log('submitted')
       const postData = {
         task: this.task,
         desc: this.desc
       }
-      Vue.http.post(createTodoUrl, postData).then((res) => {
-        console.log(res)
-      })
+      this.$store.dispatch('addTodo', postData)
     }
   }
 }
